@@ -136,7 +136,7 @@ if 'RENDER' in os.environ:
     DATABASES = {
         'default': dj_database_url.config(
             # Feel free to alter this value to suit your needs.
-            default='postgresql://postgres:postgres@localhost:5432/noticias',
+            default='postgres://noticias:oIzhxlgWWnlHLD02mx5o2QHCiBmCSJYj@dpg-cjbt5lrbq8nc73fr6h30-a/noticias',
             conn_max_age=600
         )
     }
