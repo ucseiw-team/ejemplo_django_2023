@@ -131,13 +131,13 @@ import os
 import dj_database_url
 
 if 'RENDER' in os.environ:
+    print("USING RENDER.COM SETTINGS!")
     DEBUG = False
     ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
     DATABASES = {
         'default': dj_database_url.config(
-            # Feel free to alter this value to suit your needs.
-            default='postgres://noticias:oIzhxlgWWnlHLD02mx5o2QHCiBmCSJYj@dpg-cjbt5lrbq8nc73fr6h30-a/noticias',
-            conn_max_age=600
+            default=os.environ.get('DATABSE_URL'),
+            conn_max_age=600,
         )
     }
     MIDDLEWARE.insert(MIDDLEWARE.index('django.middleware.security.SecurityMiddleware') + 1,
