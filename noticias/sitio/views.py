@@ -10,9 +10,5 @@ def inicio(request):
     nueva.fecha = datetime.now()
     nueva.save()
 
-    a = 1
-    b = 0
-    c = a / b
-
     noticias = Noticia.objects.filter(archivada=False).order_by("fecha")
     return render(request, 'inicio.html', {'lista_noticias': noticias})
