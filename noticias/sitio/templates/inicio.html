@@ -1,3 +1,10 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'sitio/ejemplo.css' %}">
+</head>
+
+<body>
 <h1>Noticias.com</h1>
 <p>Bienvenidos!</p>
 
@@ -5,5 +12,4 @@
     <h3>{{ noticia.fecha }} {{ noticia.titulo }}</h3>
     <p>{{ noticia.texto }}</p>
 {% endfor %}
-
-
+</body>
