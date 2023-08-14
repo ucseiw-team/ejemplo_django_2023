@@ -1,5 +1,5 @@
 # exit on error
 set -o errexit
 
-cd noticias
-gunicorn noticias.wsgi:application
+cd $(dirname $(find . | grep manage.py))
+gunicorn $(dirname $(find . | grep wsgi.py) | sed "s/\.\///g").wsgi:application
