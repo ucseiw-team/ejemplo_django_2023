@@ -1,0 +1,9 @@
+<h1>Cargue sus datos</h1>
+
+<form method="POST" action=".">
+    {% csrf_token %}
+    <p>Nombre: <input name="nombre" type="text" /></p>
+    <p>Edad: <input name="edad" type="number" /></p>
+
+    <p><input type="submit" value="Enviar!" /></p>
+</form>

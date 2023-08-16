@@ -1,3 +1,10 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'sitio/css/estilos.css' %}" />
+</head>
+
+<body>
 <h1>Noticias.com</h1>
 <p>Bienvenidos!</p>
 
@@ -6,4 +13,4 @@
     <p>{{ noticia.texto }}</p>
 {% endfor %}
 
-
+</body>

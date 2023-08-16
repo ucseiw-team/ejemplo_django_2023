@@ -1,0 +1,9 @@
+<h1>Cargue sus datos</h1>
+
+<form method="POST" action=".">
+    {% csrf_token %}
+    {{ form_noticia.as_p }}
+
+    <p><input type="submit" value="Enviar!" /></p>
+</form>
+
