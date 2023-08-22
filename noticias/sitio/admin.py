@@ -1,5 +1,6 @@
 from django.contrib import admin
-from sitio.models import Noticia
+from sitio.models import Noticia, Categoria
+
 
 class AdminNoticia(admin.ModelAdmin):
     list_display = ('id', 'titulo', 'fecha',)
@@ -7,6 +8,13 @@ class AdminNoticia(admin.ModelAdmin):
     search_fields = ('texto', )
     date_hierarchy = 'fecha'
 
+
+class AdminCategoria(admin.ModelAdmin):
+    list_display = ('id', 'nombre')
+    search_fields = ('nombre', )
+
+
 admin.site.register(Noticia, AdminNoticia)
+admin.site.register(Categoria, AdminCategoria)
 
 
