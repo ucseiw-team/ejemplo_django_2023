@@ -1,16 +1,18 @@
-{% load static %}
-<html>
-<head>
-    <link rel="stylesheet" href="{% static 'sitio/css/estilos.css' %}" />
-</head>
+{% extends "base.html" %}
 
-<body>
-<h1>Noticias.com</h1>
-<p>Bienvenidos!</p>
+{% block nombre_seccion %}- Home{% endblock %}
 
-{% for noticia in lista_noticias %}
-    <h3>{{ noticia.fecha }} {{ noticia.titulo }}</h3>
-    <p>{{ noticia.texto }}</p>
-{% endfor %}
+{% block contenido %}
+    {% for noticia in lista_noticias %}
+        <h3>{{ noticia.fecha|date:"Y/m" }} {{ noticia.titulo|upper }}</h3>
+        <p>{{ noticia.texto }}</p>
+    {% endfor %}
 
-</body>
+    {% include "publicidad.html" with que_comprar="espadas" %}
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        console.log("hola!");
+    </script>
+{% endblock %}
