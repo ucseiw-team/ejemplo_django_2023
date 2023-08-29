@@ -3,10 +3,9 @@
 {% block nombre_seccion %}- Home{% endblock %}
 
 {% block contenido %}
-    {% for noticia in lista_noticias %}
-        <h3>{{ noticia.fecha|date:"Y/m" }} {{ noticia.titulo|upper }}</h3>
-        <p>{{ noticia.texto }}</p>
-    {% endfor %}
+    <div id="lista-noticias" hx-get="/api/noticias" hx-trigger="every 2s">
+        <p>Cargando...</p>
+    </div>
 
     {% include "publicidad.html" with que_comprar="espadas" %}
 {% endblock %}

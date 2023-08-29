@@ -1,3 +1,5 @@
+from django.core import serializers
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from sitio.models import Noticia
 from sitio.forms import FormNoticia, FormNoticiaCopado
@@ -12,8 +14,22 @@ def inicio(request):
     nueva.fecha = datetime.now()
     nueva.save()
 
-    noticias = Noticia.objects.filter(archivada=False).order_by("fecha")
-    return render(request, 'inicio.html', {'lista_noticias': noticias})
+    return render(request, 'inicio.html', {})
+
+
+def api_noticias_como_html(request):
+    noticias = Noticia.objects.filter(archivada=False).order_by("-fecha")[:3]
+    return render(request, 'api_noticias.html', {'lista_noticias': noticias})
+
+
+def api_noticias_como_json(request, noticia_pk):
+    noticia = Noticia.objects.get(pk=noticia_pk)
+    if request.method == "DELETE":
+        noticia.delete()
+        return JsonResponse({"resultado": "borrada"})
+    elif request.method == "GET":
+        noticia_como_json = serializers.serialize("json", [noticia])
+        return HttpResponse(noticia_como_json, content_type="application/json")
 
 
 def prueba_form_pelado(request):

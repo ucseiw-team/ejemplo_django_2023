@@ -20,6 +20,8 @@ from sitio import views
 
 urlpatterns = [
     path('inicio/', views.inicio),
+    path('api/noticias/', views.api_noticias_como_html),
+    path('api/noticias/<int:noticia_pk>/', views.api_noticias_como_json),
     path('prueba_form_pelado/', views.prueba_form_pelado),
     path('prueba_form_django/', views.prueba_form_django),
     path('prueba_form_django_reloaded/', views.prueba_form_django_reloaded),
