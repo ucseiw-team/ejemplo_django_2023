@@ -25,7 +25,7 @@ urlpatterns = [
     path('prueba_form_pelado/', views.prueba_form_pelado),
     path('prueba_form_django/', views.prueba_form_django),
     path('prueba_form_django_reloaded/', views.prueba_form_django_reloaded),
-    path('rebuild_and_update_index/', views.rebuild_and_update_index),
+    path('rebuild_index/', views.rebuild_index),
     path('search/', include('haystack.urls')),
     path('admin/', admin.site.urls),
 ]
