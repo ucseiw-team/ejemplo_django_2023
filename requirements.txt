@@ -3,3 +3,5 @@ dj-database-url==2.0.0
 psycopg2-binary==2.9.7
 whitenoise[brotli]==6.5.0
 gunicorn==21.2.0
+django-haystack==3.2.1
+whoosh==2.7.4
