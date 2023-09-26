@@ -76,3 +76,10 @@ def prueba_form_django_reloaded(request):
         form = FormNoticiaCopado()
 
     return render(request, 'prueba_form_django.html', {'form_noticia': form})
+
+
+def rebuild_and_update_index(request):
+    from django.core.management import call_command
+    call_command("rebuild_index", interactive=False)
+    call_command("update_index", interactive=False)
+    return "Index rebuilt and updated"
